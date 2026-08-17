@@ -125,7 +125,7 @@ knowledge-content-system/
 
 - `skill.yaml` 与 `agents/openai.yaml` 的“知识内容系统”显示名是否一致；
 - 5 种明确调用词是否仍存在；
-- 用户可见内容中是否意外出现旧英文名 `Professional Method Compiler`；
+- 用户可见内容中是否意外出现旧版英文显示名；
 - 默认“不创建长期记忆或工作空间”的保护语义是否存在；
 - 旧工作区兼容说明是否仍保留。
 
