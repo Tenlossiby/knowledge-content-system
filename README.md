@@ -137,7 +137,7 @@ pwsh -NoProfile -File ./tests/verify-knowledge-content-system.ps1
 
 CI 运行：[`.github/workflows/verify.yml`](./.github/workflows/verify.yml) 在每次 `push` 和 `pull_request` 时使用 `windows-latest` 执行同一条 PowerShell 命令。脚本通过时输出 `Knowledge Content System rename acceptance checks: PASS`；任一检查失败会抛出错误并以非零退出码结束。
 
-当前仓库的实际 CI 状态以页面顶部徽章和 GitHub Actions 运行记录为准；本脚本是仓库一致性验收，不代表已完成端到端平台兼容性、用户效果或大规模产品验证。
+当前实际结果：截至 2026-08-17，`main` 分支最近一次 GitHub Actions 验证通过，脚本输出 `Knowledge Content System rename acceptance checks: PASS`。页面顶部徽章与 GitHub Actions 运行记录用于显示后续提交的最新状态。本脚本是仓库一致性验收，不代表已完成端到端平台兼容性、用户效果或大规模产品验证。
 
 ## 平台能力
 
