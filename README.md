@@ -121,7 +121,12 @@ knowledge-content-system/
 
 ## 验证与测试
 
-仓库提供 [`tests/verify-knowledge-content-system.ps1`](./tests/verify-knowledge-content-system.ps1) 作为一致性与重命名验收脚本。它会扫描仓库中的 `.md` 与 `.yaml` 文件，并检查：
+仓库提供两份等价的一致性与重命名验收脚本：
+
+- [`tests/verify-knowledge-content-system.ps1`](./tests/verify-knowledge-content-system.ps1)：原始 PowerShell 验收脚本；
+- [`tests/verify-knowledge-content-system.py`](./tests/verify-knowledge-content-system.py)：用于没有 PowerShell 环境时的跨平台 Python 版本。
+
+两份脚本都扫描仓库中的 `.md` 与 `.yaml` 文件，并检查：
 
 - `skill.yaml` 与 `agents/openai.yaml` 的“知识内容系统”显示名是否一致；
 - 5 种明确调用词是否仍存在；
@@ -129,15 +134,21 @@ knowledge-content-system/
 - 默认“不创建长期记忆或工作空间”的保护语义是否存在；
 - 旧工作区兼容说明是否仍保留。
 
-本地运行：
+本地使用 PowerShell：
 
 ```powershell
 pwsh -NoProfile -File ./tests/verify-knowledge-content-system.ps1
 ```
 
-CI 运行：[`.github/workflows/verify.yml`](./.github/workflows/verify.yml) 在每次 `push` 和 `pull_request` 时使用 `windows-latest` 执行同一条 PowerShell 命令。脚本通过时输出 `Knowledge Content System rename acceptance checks: PASS`；任一检查失败会抛出错误并以非零退出码结束。
+没有 PowerShell 时，可使用 Python 3：
 
-当前实际结果：截至 2026-08-17，`main` 分支最近一次 GitHub Actions 验证通过，脚本输出 `Knowledge Content System rename acceptance checks: PASS`。页面顶部徽章与 GitHub Actions 运行记录用于显示后续提交的最新状态。本脚本是仓库一致性验收，不代表已完成端到端平台兼容性、用户效果或大规模产品验证。
+```bash
+python ./tests/verify-knowledge-content-system.py
+```
+
+CI 运行：[`.github/workflows/verify.yml`](./.github/workflows/verify.yml) 在每次 `push` 和 `pull_request` 时使用 `windows-latest` 先执行原 PowerShell 脚本，再执行跨平台 Python 脚本；任何一项失败都会令工作流失败。两份脚本通过时均输出 `Knowledge Content System rename acceptance checks: PASS`。
+
+当前实际结果：截至 2026-08-17，`main` 分支的仓库验收已在 GitHub Actions 中通过。页面顶部徽章与 GitHub Actions 运行记录用于显示后续提交的最新状态。本验收只检查仓库命名与关键边界的一致性，不代表已完成端到端平台兼容性、用户效果或大规模产品验证。
 
 ## 平台能力
 
