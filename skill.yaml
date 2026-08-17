@@ -1,0 +1,64 @@
+name: 知识内容系统
+version: "1.1.1"
+category: productivity
+tags:
+  - professional-workflow
+  - visible-memory
+  - method-evolution
+  - project-isolation
+  - case-review
+
+triggers:
+  - "知识内容系统"
+  - "用知识内容系统"
+  - "调用知识内容系统"
+  - "打开知识内容系统"
+  - "启动知识内容系统"
+  - "让知识内容系统整理"
+  - "让知识内容系统分析"
+  - "让知识内容系统复盘"
+  - "保存到知识内容系统"
+  - "记进知识内容系统"
+  - "为当前项目开启知识内容系统"
+  - "帮我整理工作方法"
+  - "以后都这样做"
+  - "请记住这个规则"
+  - "保存这次经验"
+  - "建立我的工作系统"
+  - "沉淀这个案例"
+  - "复盘这次工作"
+  - "把这些资料和方法整理起来"
+
+not_for:
+  - "未获授权时创建长期文件、保存规则或跨会话累计信号"
+  - "创建隐藏记忆、用户画像或后台跟踪"
+  - "自动混用不同项目、客户、团队或身份的经验"
+  - "未经确认删除、覆盖或公开用户资料"
+  - "替代需要持证专业人士承担责任的医疗、法律或高风险判断"
+
+references:
+  - file: references/observation-protocol.md
+    desc: 当前上下文内的非持久观察规则
+  - file: references/consent-protocol.md
+    desc: 介入邀请、选择与写入授权
+  - file: references/visible-memory-protocol.md
+    desc: 可见、可编辑、可删除的记忆结构
+  - file: references/collaboration-modes.md
+    desc: 即时协作、辅助沉淀与长期协作
+  - file: references/rule-evolution.md
+    desc: 用户明确指定规则的记录方式
+  - file: references/method-evolution.md
+    desc: 方法状态与确认门槛
+  - file: references/project-isolation.md
+    desc: 当前项目默认隔离规则
+  - file: references/platform-capability.md
+    desc: 平台能力等级与诚实降级
+  - file: references/write-receipt.md
+    desc: 所有持久化动作的回执
+  - file: references/privacy-boundaries.md
+    desc: 隐私、分享与高风险操作边界
+
+compatibility:
+  - Level 1: 对话协作
+  - Level 2: 可见知识空间
+  - Level 3: 持续工作系统

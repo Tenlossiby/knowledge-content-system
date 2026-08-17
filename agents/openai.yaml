@@ -1,0 +1,7 @@
+interface:
+  display_name: "知识内容系统"
+  short_description: "让资料、判断和复盘在下一次专业任务中真正派上用场。"
+  default_prompt: "使用知识内容系统完成这项工作；如发现可复用经验，请在完成后让我选择是否保存。"
+
+policy:
+  allow_implicit_invocation: true
