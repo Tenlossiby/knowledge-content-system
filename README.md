@@ -1,5 +1,7 @@
 # 知识内容系统
 
+[![Verify](https://github.com/Tenlossiby/knowledge-content-system/actions/workflows/verify.yml/badge.svg)](https://github.com/Tenlossiby/knowledge-content-system/actions/workflows/verify.yml)
+
 > 让资料、判断和复盘在下一次专业任务中真正派上用场。
 
 **知识内容系统**是一个面向专业个人的通用 Skill。它不仅整理资料与案例，也帮助用户把日常工作中的判断、规则、方法和复盘，沉淀成**可见、可修改、可删除、可持续演进**的个人专业工作系统。
@@ -116,6 +118,26 @@ knowledge-content-system/
 ```
 
 `SKILL.md` 是核心入口；复杂协议放在 `references/`，可复用输出结构放在 `templates/`，行业示例只用于说明行为，不构成领域规则。
+
+## 验证与测试
+
+仓库提供 [`tests/verify-knowledge-content-system.ps1`](./tests/verify-knowledge-content-system.ps1) 作为一致性与重命名验收脚本。它会扫描仓库中的 `.md` 与 `.yaml` 文件，并检查：
+
+- `skill.yaml` 与 `agents/openai.yaml` 的“知识内容系统”显示名是否一致；
+- 5 种明确调用词是否仍存在；
+- 用户可见内容中是否意外出现旧英文名 `Professional Method Compiler`；
+- 默认“不创建长期记忆或工作空间”的保护语义是否存在；
+- 旧工作区兼容说明是否仍保留。
+
+本地运行：
+
+```powershell
+pwsh -NoProfile -File ./tests/verify-knowledge-content-system.ps1
+```
+
+CI 运行：[`.github/workflows/verify.yml`](./.github/workflows/verify.yml) 在每次 `push` 和 `pull_request` 时使用 `windows-latest` 执行同一条 PowerShell 命令。脚本通过时输出 `Knowledge Content System rename acceptance checks: PASS`；任一检查失败会抛出错误并以非零退出码结束。
+
+当前仓库的实际 CI 状态以页面顶部徽章和 GitHub Actions 运行记录为准；本脚本是仓库一致性验收，不代表已完成端到端平台兼容性、用户效果或大规模产品验证。
 
 ## 平台能力
 
